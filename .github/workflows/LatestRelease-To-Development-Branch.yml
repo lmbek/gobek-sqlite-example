@@ -1,3 +1,4 @@
+# PLEASE NOTE: This will only work if setting (workflow permissions) have been set to Read and Write permissions and github actions are allowed to create and approve pull requests
 name: On-push to LatestRelease, update Development branch
 
 on:
