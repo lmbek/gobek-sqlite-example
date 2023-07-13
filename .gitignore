@@ -6,3 +6,4 @@ example/generate
 *.linux
 *.syso
 *.sum
+*.db
