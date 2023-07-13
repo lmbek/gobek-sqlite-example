@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Auth Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:;base64,=">
+    <link href="default.css" rel="stylesheet">
+</head>
+<body>
+    <h2>Sign in</h2>
+    <form method="POST" action="/api/auth/signin">
+        <label>
+            <input name="username" type="text" placeholder="Username" value="something">
+        </label>
+        <label>
+            <input name="password" type="password" placeholder="Password" value="something">
+        </label>
+        <button type="submit">Sign in</button>
+    </form>
+    <h2>Check if signed in</h2>
+    <form method="GET" action="/api/auth/active">
+        <button type="submit">Check</button>
+    </form>
+    <h2>Sign out</h2>
+    <form method="GET" action="/api/auth/signout">
+        <button type="submit">Sign out</button>
+    </form>
+</body>
+</html>
