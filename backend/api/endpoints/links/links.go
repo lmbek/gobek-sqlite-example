@@ -2,8 +2,12 @@ package links
 
 import (
 	"database/sqlite"
-	"errors"
 )
+
+type Link struct {
+	Id   int    "json:\"id\""
+	Name string "json:\"name\""
+}
 
 func Get() (any, error) {
 	database := sqlite.Database{}
@@ -14,17 +18,36 @@ func Get() (any, error) {
 		return nil, err
 	}
 
+	// if the table does not exist, create it (empty)
 	err = database.CreateTable(sqlite.DataPath + "sql/links/create-table-links.sql")
 	if err != nil {
 		return nil, err
 	}
 
-	// if we have data, send data
-	if true {
-		myData := []string{"https://google.dk", "https://facebook.com", "https://linkedin.com"}
-		return myData, nil
+	// check for data in the table
+	result, err := database.SelectData(sqlite.DataPath + "sql/links/select-all-links.sql")
+	if err != nil {
+		return nil, err
 	}
 
-	// else send the error (modify current error)
-	return nil, errors.New("database could not connect")
+	var output []Link
+
+	for result.Next() {
+		link := new(Link)
+		err := result.Scan(&link.Id, &link.Name)
+		if err != nil {
+			return nil, err
+		}
+
+		output = append(output, *link)
+	}
+
+	// Check if output is empty, return an empty slice instead of nil
+	if len(output) == 0 {
+		return []Link{}, nil
+	}
+
+	// if we have data, send data
+	myData := output
+	return myData, nil
 }
