@@ -8,6 +8,7 @@ import (
 )
 
 var DataPath = "./data/"
+var DatabaseName = "gobek-example.db"
 
 type Database struct {
 	Connection *sql.DB
@@ -16,7 +17,7 @@ type Database struct {
 // Open a connection to the SQLite database.
 func (database *Database) Connect() error {
 	var err error
-	database.Connection, err = sql.Open("sqlite3", DataPath+"gobek-example.db")
+	database.Connection, err = sql.Open("sqlite3", DataPath+DatabaseName)
 	if err != nil {
 		return err
 	}
@@ -41,9 +42,7 @@ func (database *Database) CreateTable(SQLFile string) error {
 	statement, err := database.prepareStatement(SQLFile)
 	defer statement.Close()
 	if err != nil {
-		fmt.Println("aaa")
 		fmt.Println(err)
-		fmt.Println("bbb")
 		return err
 	}
 
