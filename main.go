@@ -11,7 +11,7 @@
 // and the build command
 // NOTE: GoPackager.exe is a modified version of goversioninfo (https://github.com/josephspurrier/goversioninfo).
 // You can compile your own GoPackager.exe at ./bin/windows/go-packager by go building the main.go file
-
+//
 // ** Reason Of Framework Explained **
 // This application is meant to find a port and launch a frontend in chrome (windows) or chromium (linux).
 // Meanwhile, it will open a http localhost backend with an api.
