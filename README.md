@@ -29,7 +29,7 @@ Knowing how to install go-sqlite from https://github.com/mattn/go-sqlite3
 
 ## Requirements for users
 Chrome (Windows) or Chromium (Linux) <br>
-macOS/DARWIN NOT SUPPORTED YET <br>
+macOS/DARWIN NOT SUPPORTED YET <br> 
 
 ## How to use (download example project)
 The best way to start using the project is to download the example project at: <br>
