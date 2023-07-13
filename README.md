@@ -33,8 +33,10 @@ macOS/DARWIN NOT SUPPORTED YET <br>
 
 ## How to use (download example project)
 The best way to start using the project is to download the example project at: <br>
-https://github.com/lmbek/gobek-sqlite-example
+https://github.com/lmbek/gobek-sqlite-example <br>
+and then using:
 
+	go get github.com/lmbek/gobek
 This example project uses this package and combines it with a local api and database. <br>
 Then the Go api is being developed and customized by you together with the frontend (JavaScript, HTML, CSS) <br>
 
