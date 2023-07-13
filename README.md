@@ -11,8 +11,9 @@ This project is used by Beksoft ApS for projects such as:
 * BekCMS
 * PingPong Game made in Three.js
 * Several local webbased software projects
-  <br>
+  <br><br>
 Write to me at lars@beksoft.dk if you want to have your project listed<br>
+Be aware that i am mostly targetting developers who is doing programming on windows, so i mostly do not focus on linux instructions in this README. Like with gcc, i focus on how to do it with windows. <br>
 
 ## Contributors
 Lars Morten Bek (https://github.com/lmbek) <br>
@@ -24,6 +25,7 @@ Feel free to open an issue or pull request with feature requests or if you have 
 Go 1.20+ <br>
 Chrome (Windows) or Chromium (Linux) <br>
 macOS/DARWIN NOT SUPPORTED YET <br>
+Knowing how to install go-sqlite from https://github.com/mattn/go-sqlite3
 
 ## Requirements for users
 Chrome (Windows) or Chromium (Linux) <br>
@@ -31,66 +33,18 @@ macOS/DARWIN NOT SUPPORTED YET <br>
 
 ## How to use (download example project)
 The best way to start using the project is to download the example project at: <br>
-https://github.com/lmbek/gobek-example
+https://github.com/lmbek/gobek-sqlite-example
 
-This example project uses this package and combines it with a local api. <br>
+This example project uses this package and combines it with a local api and database. <br>
 Then the Go api is being developed and customized by you together with the frontend (JavaScript, HTML, CSS) <br>
 
-## How to use (with go get)
-first run the following in CMD (with go installed) <br><br>
-The Go package:
+## Installing gcc and sqlite3 third-party project required
+When you want to use sqlite together with gobek, you need to preinstall a few things<br>
+First install gcc, you can download it with one of the TDM-GCC Toolchains that can be found at https://jmeubank.github.io/tdm-gcc/ and find an installer (for advanced developers)<br>
+Once you have installed it and set the Path in system environments, then you can try to confirm if it is installed by using gcc --version in CMD
+This project already uses a dependency for the github project, but you can run it by using: <br>
 
-    go get github.com/lmbek/gobek
-<br><br>
-Example: how to add framework to main.go<br>
-
- 	//go:generate ./bin/windows/go-packager/GoPackager.exe
-	// go generate
-	// go build -ldflags -H=windowsgui -o NewProjectName.exe
-	
-	// ** Generating and Building **
-	// The above is the generate commands to add icon and manifest to binary,
-	// and the build command
-	// NOTE: GoPackager.exe is a modified version of goversioninfo (https://github.com/josephspurrier/goversioninfo).
-	// You can compile your own GoPackager.exe at ./bin/windows/go-packager by go building the main.go file
-	
-	// ** Reason Of Framework Explained **
-	// This application is meant to find a port and launch a frontend in chrome (windows) or chromium (linux).
-	// Meanwhile, it will open a http localhost backend with an api.
-	// The API package at ./backend/api/ can be replaced to fit another application,
-	// if the framework is to be used for other applications.
-	// It is important to note, that the system will require a frontend directory and a data directory,
-	// when the application is tested and released, these will also need to be managed (other applications can be put in)
-	// This framework is very open-source, since when released to users, the users can modify the frontend files.
-	// However, the backend can be kept as binary, but sent to users if they later want to modify it,
-	// for example users must be able to modify the application backend, and replace the binary with the modified version.
-	
-	package main
-	
-	import (
-		"fmt"
-		"github.com/lmbek/gobek"
-		"os"
-	)
-	
-	// For windows, we need an organisation name and project name
-	var organisationName = "NewOrganisationName" // put in organisation name
-	var projectName = "NewProjectName"           // put in project name
-	var chromeLauncher = gobek.ChromeLauncher{
-		Location:                os.Getenv("programfiles") + "\\Google\\Chrome\\Application\\chrome.exe",
-		FrontendInstallLocation: os.Getenv("localappdata") + "\\Google\\Chrome\\InstalledApps\\" + organisationName + "\\" + projectName,
-	}
-	var chromiumLauncher = gobek.ChromiumLauncher{
-		Location: "/var/lib/snapd/desktop/applications/chromium_chromium.desktop",
-	}
-	var frontendPath = "./frontend" // this should be set to where frontend files is (frontend folder: html, css, javascript...)
-	func main() {
-		err := gobek.StartDefault(frontendPath, chromeLauncher, chromiumLauncher)
-		if err != nil {
-			fmt.Println(err)
-		}
-	}
-
+	go get github.com/mattn/go-sqlite3
 ## How to test
 
 	go test ./tests/...
