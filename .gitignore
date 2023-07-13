@@ -1,0 +1,9 @@
+.idea
+example/data
+example/generate
+*.exe
+*.android
+*.linux
+*.syso
+*.sum
+*.db
