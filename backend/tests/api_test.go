@@ -2,6 +2,7 @@ package tests
 
 import (
 	"api"
+	"api/endpoints/links"
 	"api/functions"
 	"bytes"
 	"errors"
@@ -120,7 +121,7 @@ func TestAPILinksEndpoint(test *testing.T) {
 		request, _ := http.NewRequest("GET", endpoint, nil)
 
 		// EXPECTED
-		expected := []string{"https://google.dk", "https://facebook.com", "https://linkedin.com"}
+		expected := []links.Link{}
 
 		// RESULT
 		result, _ := api.HandleEndpoint(endpoint, response, request)
@@ -141,7 +142,7 @@ func TestAPILinksEndpoint(test *testing.T) {
 		request, _ := http.NewRequest("GET", endpoint, nil)
 
 		// EXPECTED
-		expected := []string{"https://google.dk", "https://facebook.com", "https://linkedin.com"}
+		expected := []links.Link{}
 
 		// RESULT
 		result, _ := api.HandleEndpoint(endpoint, response, request)
