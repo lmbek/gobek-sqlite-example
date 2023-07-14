@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS places (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL
+);
