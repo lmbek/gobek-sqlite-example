@@ -3,6 +3,7 @@ package tests
 import (
 	"api"
 	"api/endpoints/links"
+	"api/endpoints/places"
 	"api/functions"
 	"bytes"
 	"errors"
@@ -165,7 +166,7 @@ func TestAPIPlacesEndpoint(test *testing.T) {
 		request, _ := http.NewRequest("GET", endpoint, nil)
 
 		// EXPECTED
-		expected := []string{"København", "Odense", "Aarhus"}
+		expected := []places.Place{}
 
 		// RESULT
 		result, _ := api.HandleEndpoint(endpoint, response, request)
@@ -186,7 +187,7 @@ func TestAPIPlacesEndpoint(test *testing.T) {
 		request, _ := http.NewRequest("GET", endpoint, nil)
 
 		// EXPECTED
-		expected := []string{"København", "Odense", "Aarhus"}
+		expected := []places.Place{}
 
 		// RESULT
 		result, _ := api.HandleEndpoint(endpoint, response, request)

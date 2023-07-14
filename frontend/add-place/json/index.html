@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:;base64,=">
+    <script src="json.js" defer></script>
+    <script src="getData.js" defer></script>
+</head>
+<body>
+<noscript>Warning: JavaScript is not enabled</noscript>
+<h2>Adding data</h2>
+<form id="add-place" method="POST" action="/api/places">
+    <label>
+        <input name="name" id="name" type="text">
+    </label>
+    <button type="submit">Add Place</button>
+</form>
+<p id="feedback"></p>
+<br>
+<br>
+<h2>Getting data</h2>
+<table id="placesTable">
+    <!-- Table headers or any existing rows can be placed here -->
+</table>
+</body>
+</html>
