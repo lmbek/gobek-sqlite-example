@@ -10,7 +10,7 @@ type Link struct {
 }
 
 func Get() (any, error) {
-	database := sqlite.Database{}
+	database := new(sqlite.Database)
 
 	err := database.Connect()
 	defer database.Connection.Close()
@@ -48,6 +48,5 @@ func Get() (any, error) {
 	}
 
 	// if we have data, send data
-	myData := output
-	return myData, nil
+	return output, nil
 }
