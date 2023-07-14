@@ -15,7 +15,7 @@ func HandleEndpoint(endpoint string, response http.ResponseWriter, request *http
 	case http.MethodGet:
 		return Get()
 	case http.MethodPost:
-		return nil, functions.NotSupportedError()
+		return Post(response, request)
 	case http.MethodPut:
 		return nil, functions.NotSupportedError()
 	case http.MethodDelete:
