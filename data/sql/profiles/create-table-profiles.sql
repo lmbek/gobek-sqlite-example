@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS profiles (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(60),
+    age INTEGER(3)
+);
